@@ -13,5 +13,6 @@
 MongoDB Atlas
 
 Cluster
-: UdemyContactKeeper
-: <https://cloud.mongodb.com/v2/5e1cdd54cf09a2c88b58102c#clusters>
+
+- UdemyContactKeeper
+- <https://cloud.mongodb.com/v2/5e1cdd54cf09a2c88b58102c#clusters>

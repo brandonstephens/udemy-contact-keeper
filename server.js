@@ -1,6 +1,10 @@
 const express = require('express')
+const connectDB = require('./config/db')
 
 const app = express()
+
+// Connect Database
+connectDB()
 
 app.get('/', (request, response) => response.json({ msg: 'Welcome to the machine.' }))
 app.use('/api/auth', require('./routes/auth'))
