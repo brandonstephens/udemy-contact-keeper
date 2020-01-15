@@ -6,7 +6,7 @@ const config = require('config')
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator/check')
 
-const User = require('../models/Users')
+const User = require('../models/User')
 
 // @route    GET api/auth
 // @desc     Get logged in user
@@ -29,7 +29,6 @@ router.post(
   [check('email', 'Emails must be valid').isEmail(), check('password', 'Password is required').exists()],
   async (request, response) => {
     const errors = validationResult(request)
-
     if (!errors.isEmpty()) {
       return response.status(400).json({ errors: errors.array() })
     }
