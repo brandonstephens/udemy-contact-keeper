@@ -6,7 +6,7 @@
 
 1. `nvm use`
 2. `npm install`
-3. `npm run server`
+3. `npm run dev`
 
 ## Reference
 
@@ -18,3 +18,7 @@ MongoDB Atlas
 JWT
 
 - <https://jwt.io>
+
+Font Awesome
+
+- <https://fontawesome.com/kits/60e7f453d8/use>
