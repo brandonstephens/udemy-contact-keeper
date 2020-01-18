@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+
+import AlertContext from '../../context/alert/alertContext'
 
 const Register = props => {
+  const alertContext = useContext(AlertContext)
+  const { setAlert } = alertContext
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -13,7 +17,13 @@ const Register = props => {
 
   const onSubmit = event => {
     event.preventDefault()
-    console.log('@todo register submit')
+    if (name === '' || email === '' || password === '') {
+      setAlert('Incomplete registration form', 'danger')
+    } else if (password !== password_confirmation) {
+      setAlert('Passwords do not match', 'danger')
+    } else {
+      console.log('@todo register submit')
+    }
   }
 
   return (
@@ -22,19 +32,25 @@ const Register = props => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={name} onChange={onChange} />
+          <input type="text" name="name" value={name} onChange={onChange} required />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={email} onChange={onChange} />
+          <input type="email" name="email" value={email} onChange={onChange} required />
         </div>
         <div className="form-group">
           <label htmlFor="name">Password</label>
-          <input type="password" name="password" value={password} onChange={onChange} />
+          <input type="password" name="password" value={password} onChange={onChange} required minLength="6" />
         </div>
         <div className="form-group">
           <label htmlFor="name">Password Confirmation</label>
-          <input type="password" name="password_confirmation" value={password_confirmation} onChange={onChange} />
+          <input
+            type="password"
+            name="password_confirmation"
+            value={password_confirmation}
+            onChange={onChange}
+            required
+          />
         </div>
 
         <div>
