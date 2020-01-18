@@ -2,6 +2,12 @@
 
 <https://www.udemy.com/course/modern-react-front-to-back/>
 
+## Deployment
+
+<https://warm-bayou-31655.herokuapp.com/>
+
+1. `git push heroku master`
+
 ## Setup
 
 1. `nvm use`
