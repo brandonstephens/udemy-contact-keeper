@@ -6,7 +6,7 @@ import About from './components/pages/About'
 import './App.css'
 
 import ContactState from './context/contact/ContactState'
-import AuthState from './context/contact/AuthState'
+import AuthState from './context/auth/AuthState'
 
 const App = () => {
   return (
