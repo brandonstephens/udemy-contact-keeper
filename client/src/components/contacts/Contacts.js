@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import ContactIem from './ContactItem'
+import ContactItem from './ContactItem'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import ContactContext from '../../context/contact/contactContext'
 
 const Contacts = props => {
   const contactContext = useContext(ContactContext)
-
   const { contacts, filtered } = contactContext
 
   if (contacts.length === 0) {
@@ -14,9 +14,19 @@ const Contacts = props => {
 
   return (
     <>
-      {filtered !== null
-        ? filtered.map(contact => <ContactIem key={contact.id} contact={contact} />)
-        : contacts.map(contact => <ContactIem key={contact.id} contact={contact} />)}
+      <TransitionGroup>
+        {filtered !== null
+          ? filtered.map(contact => (
+              <CSSTransition key={contact.id} timeout={500} classNames="item">
+                <ContactItem contact={contact} />
+              </CSSTransition>
+            ))
+          : contacts.map(contact => (
+              <CSSTransition key={contact.id} timeout={500} classNames="item">
+                <ContactItem contact={contact} />
+              </CSSTransition>
+            ))}
+      </TransitionGroup>
     </>
   )
 }
