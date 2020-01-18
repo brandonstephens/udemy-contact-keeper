@@ -44,11 +44,11 @@ const Login = props => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={email} onChange={onChange} requried />
+          <input type="email" name="email" value={email} onChange={onChange} requried="true" />
         </div>
         <div className="form-group">
           <label htmlFor="name">Password</label>
-          <input type="password" name="password" value={password} onChange={onChange} requried />
+          <input type="password" name="password" value={password} onChange={onChange} requried="true" />
         </div>
 
         <div>
