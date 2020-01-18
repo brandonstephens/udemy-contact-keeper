@@ -8,6 +8,10 @@
 
 1. `git push heroku master`
 
+View Heroku Logs
+
+1. `heroku logs --tail`
+
 ## Setup
 
 1. `nvm use`
