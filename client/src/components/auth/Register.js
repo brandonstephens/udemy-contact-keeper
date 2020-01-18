@@ -14,15 +14,20 @@ const Register = props => {
   })
 
   const { setAlert } = alertContext
-  const { register, error, clearErrors } = authContext
+  const { register, error, clearErrors, isAuthenticated } = authContext
   const { name, email, password, password_confirmation } = user
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/')
+    }
+
     if (error === 'User already exists') {
       setAlert(error, 'danger')
       clearErrors()
     }
-  }, [error])
+    // eslint-disable-next-line
+  }, [error, isAuthenticated, props.history])
 
   const onChange = event => setUser({ ...user, [event.target.name]: event.target.value })
 
