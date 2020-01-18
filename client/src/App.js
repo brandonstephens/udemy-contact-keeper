@@ -6,22 +6,25 @@ import About from './components/pages/About'
 import './App.css'
 
 import ContactState from './context/contact/ContactState'
+import AuthState from './context/contact/AuthState'
 
 const App = () => {
   return (
-    <ContactState>
-      <Router>
-        <>
-          <Navbar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
-            </Switch>
-          </div>
-        </>
-      </Router>
-    </ContactState>
+    <AuthState>
+      <ContactState>
+        <Router>
+          <>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+              </Switch>
+            </div>
+          </>
+        </Router>
+      </ContactState>
+    </AuthState>
   )
 }
 
